@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import methods.UserRequests;
 
-
 import static constants.ApiConstants.BURGERS_URL;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -52,33 +51,25 @@ public class CreateInvalidUserTest {
                 // Создание пользователя без пароля
                 {faker.internet().emailAddress(), null, faker.name().firstName(), 403, false, "Email, password and name are required fields"},
                 // Создание пользователя без имени
-                {faker.internet().emailAddress(), faker.internet().password(), null, 403, false, "Email, password and name are required fields"},
-                // Создание дубликата пользователя
-                {faker.internet().emailAddress(), faker.internet().password(), faker.name().firstName(), 200, true, null}
+                {faker.internet().emailAddress(), faker.internet().password(), null, 403, false, "Email, password and name are required fields"}
+                // Переместила в отдельный класс дубликат пользователя из параметризованных данных
         };
     }
 
     // Метод для установки начальных условий перед тестом
     @Before
-    public void setUp()  {
-        RestAssured.requestSpecification = RequestSpec.requestSpecification(); //Устанавливаем базовую спецификацию
+    public void setUp() {
+        RestAssured.requestSpecification = RequestSpec.requestSpecification();
         user = new User(email, password, name);
         userRequests = new UserRequests();
     }
 
-    // Тест для проверки создания пользователя с невалидными данными и попытки создания существующего пользователя
+    // Тест для проверки создания пользователя с невалидными данными
     @Test
-    @DisplayName("Проверка создания пользователя с НЕвалидными данными и проверка возможности дублирования существующего пользователя")
+    @DisplayName("Проверка создания пользователя с НЕвалидными данными")
     public void createInvalidUser() {
         Response responseCreate = userRequests.createUser(user);
         responseCreate.then().log().all().statusCode(statusCode).body("success", equalTo(success)).body("message", equalTo(message));
-
-        // Если пользователь успешно создан, получаем токен доступа и пытаемся создать его снова
-        if (responseCreate.statusCode() == 200) {
-            accessToken = responseCreate.then().extract().path("accessToken");
-            Response responseCreateDouble = userRequests.createUser(user);
-            responseCreateDouble.then().log().all().statusCode(403).body("success", equalTo(false)).body("message", equalTo("User already exists"));
-        }
     }
 
     // Метод для удаления пользователя после теста (если пользователь был создан успешно)

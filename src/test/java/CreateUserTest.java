@@ -43,26 +43,8 @@ public class CreateUserTest {
         accessToken = responseCreate.jsonPath().getString("accessToken");
     }
 
-    @Test
-    @DisplayName("Создание пользователя, который уже зарегистрирован")
-    public void createExistingUser() {
-        user = new User(
-                faker.internet().emailAddress(),
-                faker.internet().password(6, 10),
-                faker.name().firstName()
-        );
+    // перенесла тест в CreateDuplicateUserTest
 
-        Response firstRegister = userRequests.createUser(user);
-        firstRegister.then().statusCode(200);
-        accessToken = firstRegister.jsonPath().getString("accessToken");
-
-        Response secondRegister = userRequests.createUser(user);
-
-        secondRegister.then().log().all()
-                .statusCode(403)
-                .body("success", equalTo(false))
-                .body("message", equalTo("User already exists"));
-    }
 
     @Test
     @DisplayName("Создание пользователя без email")

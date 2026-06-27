@@ -6,7 +6,6 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-
 public class RequestSpec {
 
     // Метод для создания базовой спецификации запроса

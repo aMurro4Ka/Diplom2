@@ -14,6 +14,7 @@ import methods.UserRequests;
 import static constants.ApiConstants.BURGERS_URL;
 import static org.hamcrest.Matchers.equalTo;
 
+
 @RunWith(Parameterized.class)
 public class UpdateUserDataTest {
     private final String oldEmail;
