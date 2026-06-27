@@ -12,6 +12,7 @@ import com.github.javafaker.Faker;
 import static constants.ApiConstants.BURGERS_URL;
 import static org.hamcrest.Matchers.equalTo;
 
+
 @RunWith(Parameterized.class)
 public class LoginNegativeTest {
     private final String email;

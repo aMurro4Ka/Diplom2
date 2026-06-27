@@ -3,6 +3,7 @@ package models; // Объявление пакета models
 
 import java.util.List; // Импорт класса List из пакета java.util
 
+
 public class Order { // Объявление публичного класса Order
 
     private List<String> ingredients; // Приватное поле ingredients типа List<String>

@@ -1,6 +1,7 @@
 package models;
 
 
+
 public class User {
 
     private String email; // Приватное поле email типа String

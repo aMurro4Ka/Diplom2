@@ -9,6 +9,7 @@ import models.User;
 import static constants.ApiConstants.*;
 import static io.restassured.RestAssured.given;
 
+
 public class UserRequests {
 
     @Step("Создание пользователя")
