@@ -1,6 +1,5 @@
 package models; // Объявление пакета models
 
-
 import java.util.List; // Импорт класса List из пакета java.util
 
 

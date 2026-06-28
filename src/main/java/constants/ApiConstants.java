@@ -1,5 +1,6 @@
 package constants;
 
+
 // Класс ApiConstants содержит константы
 public class ApiConstants {
 

@@ -12,7 +12,6 @@ import methods.UserRequests;
 import static constants.ApiConstants.BURGERS_URL;
 import static org.hamcrest.Matchers.equalTo;
 
-
 public class CreateDuplicateUserTest {
     private User user;
     private UserRequests userRequests;

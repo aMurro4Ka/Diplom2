@@ -14,7 +14,6 @@ import methods.UserRequests;
 import static constants.ApiConstants.BURGERS_URL;
 import static org.hamcrest.Matchers.equalTo;
 
-
 @RunWith(Parameterized.class)
 public class CreateInvalidUserTest {
     // Поля для хранения данных пользователя и ожидаемых результатов

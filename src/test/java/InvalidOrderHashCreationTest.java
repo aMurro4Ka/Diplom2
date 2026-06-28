@@ -15,7 +15,6 @@ import methods.OrderRequests;
 import java.util.List;
 
 
-
 @RunWith(Parameterized.class)
 public class InvalidOrderHashCreationTest {
     private final List<String> ingredients; // Список ингредиентов для создания заказа

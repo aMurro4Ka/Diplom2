@@ -12,7 +12,6 @@ import com.github.javafaker.Faker;
 import static constants.ApiConstants.BURGERS_URL;
 import static org.hamcrest.Matchers.equalTo;
 
-
 public class LoginPositiveTest {
     private UserRequests userRequests;
     private User user;
